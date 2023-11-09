@@ -5,10 +5,8 @@ var naptime = lunchtime + 2;
 var partytime;
 var evening = 18;
 
-// Getting it to show the current time on the page
 var showCurrentTime = function()
 {
-    // display the string on the webpage
     var clock = document.getElementById('clock');
  
     var currentTime = new Date();
@@ -17,8 +15,7 @@ var showCurrentTime = function()
     var minutes = currentTime.getMinutes();
     var seconds = currentTime.getSeconds();
     var meridian = "AM";
- 
-    // Set hours
+
 	  if (hours >= noon)
 	  {
 		  meridian = "PM";
@@ -29,25 +26,21 @@ var showCurrentTime = function()
 		  hours = hours - 12;
 	  }
  
-    // Set Minutes
     if (minutes < 10)
     {
         minutes = "0" + minutes;
     }
  
-    // Set Seconds
     if (seconds < 10)
     {
         seconds = "0" + seconds;
     }
  
-    // put together the string that displays the time
     var clockTime = hours + ':' + minutes + ':' + seconds + " " + meridian + "!";
  
     clock.innerText = clockTime;
 };
 
-// Getting the clock to increment on its own and change out messages and pictures
 var updateClock = function() 
 {
   var time = new Date().getHours();
@@ -101,12 +94,9 @@ var updateClock = function()
 };
 updateClock();
 
-// Getting the clock to increment once a second
 var oneSecond = 1000;
 setInterval( updateClock, oneSecond);
 
-
-// Getting the Party Time Button To Work
 var partyButton = document.getElementById("partyTimeButton");
 
 var partyEvent = function()
@@ -128,8 +118,6 @@ var partyEvent = function()
 partyButton.addEventListener("click", partyEvent);
 partyEvent(); 
 
-
-// Activates Wake-Up selector
 var wakeUpTimeSelector =  document.getElementById("wakeUpTimeSelector");
 
 var wakeUpEvent = function()
@@ -139,8 +127,6 @@ var wakeUpEvent = function()
 
 wakeUpTimeSelector.addEventListener("change", wakeUpEvent);
 
-
-// Activates Lunch selector
 var lunchTimeSelector =  document.getElementById("lunchTimeSelector");
 
 var lunchEvent = function()
@@ -150,8 +136,6 @@ var lunchEvent = function()
 
 lunchTimeSelector.addEventListener("change", lunchEvent);
 
-
-// Activates Nap-Time selector
 var napTimeSelector =  document.getElementById("napTimeSelector");
 
 var napEvent = function()
@@ -160,3 +144,23 @@ var napEvent = function()
 };
 
 napTimeSelector.addEventListener("change", napEvent);
+
+/**
+Bu kod bloğu, sayfadaki belirli HTML öğelerine olay dinleyiciler ekleyerek kullanıcının seçimlerine yanıt veren fonksiyonları tanımlar. İşlevi şu şekilde açıklayabilirim:
+
+partyButton.addEventListener("click", partyEvent);: "Party Time" butonuna tıklandığında partyEvent fonksiyonunu tetikleyen bir olay dinleyici ekler. Ayrıca, sayfa yüklendiğinde partyEvent fonksiyonunu bir kez çağırarak başlangıçta bir parti durumu olup olmadığını kontrol eder ve butonun görüntüsünü ve metnini buna göre günceller.
+
+var wakeUpTimeSelector = document.getElementById("wakeUpTimeSelector");: Sayfadaki "Wake Up Time" (Uyanma Zamanı) için seçim kutusunu temsil eden HTML öğesini alır.
+
+wakeUpTimeSelector.addEventListener("change", wakeUpEvent);: "Wake Up Time" seçim kutusunda herhangi bir değişiklik olduğunda tetiklenecek olan wakeUpEvent fonksiyonunu ekleyen bir olay dinleyici ekler. Bu fonksiyon, seçilen değeri alarak wakeuptime değişkenini günceller.
+
+var lunchTimeSelector = document.getElementById("lunchTimeSelector");: Sayfadaki "Lunch Time" (Öğle Yemeği Zamanı) için seçim kutusunu temsil eden HTML öğesini alır.
+
+lunchTimeSelector.addEventListener("change", lunchEvent);: "Lunch Time" seçim kutusunda herhangi bir değişiklik olduğunda tetiklenecek olan lunchEvent fonksiyonunu ekleyen bir olay dinleyici ekler. Bu fonksiyon, seçilen değeri alarak lunchtime değişkenini günceller.
+
+var napTimeSelector = document.getElementById("napTimeSelector");: Sayfadaki "Nap Time" (Uyku Zamanı) için seçim kutusunu temsil eden HTML öğesini alır.
+
+napTimeSelector.addEventListener("change", napEvent);: "Nap Time" seçim kutusunda herhangi bir değişiklik olduğunda tetiklenecek olan napEvent fonksiyonunu ekleyen bir olay dinleyici ekler. Bu fonksiyon, seçilen değeri alarak naptime değişkenini günceller.
+
+Bu kod bloğu, kullanıcının sayfadaki seçim kutularından birine yeni bir zaman seçimi yaptığında, ilgili değişkenleri güncelleyerek sayfanın dinamik olarak tepki vermesini sağlar.
+**/
