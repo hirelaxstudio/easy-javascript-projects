@@ -49,7 +49,7 @@ function Ball() {
 }
 
 var bal = [];
-for (var i = 0; i < 50; i++) {
+for (var i = 0; i < 20; i++) {
   bal.push(new Ball());
 }
 
@@ -92,7 +92,7 @@ function animate() {
 
 animate();
 
-setInterval(function() {
-  bal.push(new Ball());
-  bal.splice(0, 1);
-}, 400);
+// setInterval(function() {
+//   bal.push(new Ball());
+//   bal.splice(0, 1);
+// }, 400);
