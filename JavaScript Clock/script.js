@@ -1,10 +1,22 @@
+// Sabah saati
 var wakeuptime = 7;
+
+// Günün ortası, öğle saat
 var noon = 12;
+
+// Öğle yemeği saati
 var lunchtime = 12;
+
+// Öğle uykusu saati, öğle yemeğinden 2 saat sonrası
 var naptime = lunchtime + 2;
+
+// Parti saati
 var partytime;
+
+// Akşam saati
 var evening = 18;
 
+// Sayfadaki saati gösteren fonksiyon
 var showCurrentTime = function()
 {
     var clock = document.getElementById('clock');
@@ -41,6 +53,7 @@ var showCurrentTime = function()
     clock.innerText = clockTime;
 };
 
+// Saati güncelleyen ve mesajları belirleyen fonksiyon
 var updateClock = function() 
 {
   var time = new Date().getHours();
@@ -88,79 +101,86 @@ var updateClock = function()
 
   console.log(messageText); 
   timeEventJS.innerText = messageText;
-  lolcatImage.src = image;
+  lolcatImageJS.src = image;
   
   showCurrentTime();
 };
+
+// Sayfa yüklendiğinde saat bilgisini güncelleyen fonksiyonu çağır
 updateClock();
 
+// Bir saniyede bir kez saat bilgisini güncelleyen fonksiyonu çağır
 var oneSecond = 1000;
 setInterval( updateClock, oneSecond);
 
+// "Party Time" butonunu seç
 var partyButton = document.getElementById("partyTimeButton");
 
+// "Party Time" butonuna tıklanınca gerçekleşecek olayları içeren fonksiyon
 var partyEvent = function()
 {
+    // Eğer parti zamanı başlamamışsa
     if (partytime < 0) 
     {
+        // Şu anki saat bilgisini alarak parti zamanını başlat
         partytime = new Date().getHours();
+
+        // Butonun metnini ve arka plan rengini güncelle
         partyTimeButton.innerText = "Party Over!";
         partyTimeButton.style.backgroundColor = "#0A8DAB";
     }
     else
     {
+        // Partiyi sonlandır
         partytime = -1;
+
+        // Butonun metnini ve arka plan rengini güncelle
         partyTimeButton.innerText = "Party Time!";
         partyTimeButton.style.backgroundColor = "#222";
     }
 };
 
+// "Party Time" butonuna tıklanınca gerçekleşecek olayı ekle
 partyButton.addEventListener("click", partyEvent);
+
+// Sayfa yüklendiğinde veya kod çalıştırıldığında başlangıçta bir parti durumu olup olmadığını kontrol et
 partyEvent(); 
 
+// "Wake Up Time" seçim kutusunu seç
 var wakeUpTimeSelector =  document.getElementById("wakeUpTimeSelector");
 
+// "Wake Up Time" seçim kutusunda değişiklik olduğunda gerçekleşecek olayları içeren fonksiyon
 var wakeUpEvent = function()
 {
+    // Seçilen değeri alarak uyanma saati değişkenini güncelle
     wakeuptime = wakeUpTimeSelector.value;
 };
 
+// "Wake Up Time" seçim kutusuna değişiklik olduğunda gerçekleşecek olayı ekle
 wakeUpTimeSelector.addEventListener("change", wakeUpEvent);
 
+// "Lunch Time" seçim kutusunu seç
 var lunchTimeSelector =  document.getElementById("lunchTimeSelector");
 
+// "Lunch Time" seçim kutusunda değişiklik olduğunda gerçekleşecek olayları içeren fonksiyon
 var lunchEvent = function()
 {
+    // Seçilen değeri alarak öğle yemeği saati değişkenini güncelle
     lunchtime = lunchTimeSelector.value;
 };
 
+// "Lunch Time" seçim kutusuna değişiklik olduğunda gerçekleşecek olayı ekle
 lunchTimeSelector.addEventListener("change", lunchEvent);
 
+// "Nap Time" seçim kutusunu seç
 var napTimeSelector =  document.getElementById("napTimeSelector");
 
+// "Nap Time" seçim kutusunda değişiklik olduğunda gerçekleşecek olayları içeren fonksiyon
 var napEvent = function()
 {
+    // Seçilen değeri alarak öğle uykusu saati değişkenini güncelle
     naptime = napTimeSelector.value;
 };
 
+// "Nap Time" seçim kutusuna değişiklik olduğunda gerçekleşecek olayı ekle
 napTimeSelector.addEventListener("change", napEvent);
-
-/**
-Bu kod bloğu, sayfadaki belirli HTML öğelerine olay dinleyiciler ekleyerek kullanıcının seçimlerine yanıt veren fonksiyonları tanımlar. İşlevi şu şekilde açıklayabilirim:
-
-partyButton.addEventListener("click", partyEvent);: "Party Time" butonuna tıklandığında partyEvent fonksiyonunu tetikleyen bir olay dinleyici ekler. Ayrıca, sayfa yüklendiğinde partyEvent fonksiyonunu bir kez çağırarak başlangıçta bir parti durumu olup olmadığını kontrol eder ve butonun görüntüsünü ve metnini buna göre günceller.
-
-var wakeUpTimeSelector = document.getElementById("wakeUpTimeSelector");: Sayfadaki "Wake Up Time" (Uyanma Zamanı) için seçim kutusunu temsil eden HTML öğesini alır.
-
-wakeUpTimeSelector.addEventListener("change", wakeUpEvent);: "Wake Up Time" seçim kutusunda herhangi bir değişiklik olduğunda tetiklenecek olan wakeUpEvent fonksiyonunu ekleyen bir olay dinleyici ekler. Bu fonksiyon, seçilen değeri alarak wakeuptime değişkenini günceller.
-
-var lunchTimeSelector = document.getElementById("lunchTimeSelector");: Sayfadaki "Lunch Time" (Öğle Yemeği Zamanı) için seçim kutusunu temsil eden HTML öğesini alır.
-
-lunchTimeSelector.addEventListener("change", lunchEvent);: "Lunch Time" seçim kutusunda herhangi bir değişiklik olduğunda tetiklenecek olan lunchEvent fonksiyonunu ekleyen bir olay dinleyici ekler. Bu fonksiyon, seçilen değeri alarak lunchtime değişkenini günceller.
-
-var napTimeSelector = document.getElementById("napTimeSelector");: Sayfadaki "Nap Time" (Uyku Zamanı) için seçim kutusunu temsil eden HTML öğesini alır.
-
-napTimeSelector.addEventListener("change", napEvent);: "Nap Time" seçim kutusunda herhangi bir değişiklik olduğunda tetiklenecek olan napEvent fonksiyonunu ekleyen bir olay dinleyici ekler. Bu fonksiyon, seçilen değeri alarak naptime değişkenini günceller.
-
-Bu kod bloğu, kullanıcının sayfadaki seçim kutularından birine yeni bir zaman seçimi yaptığında, ilgili değişkenleri güncelleyerek sayfanın dinamik olarak tepki vermesini sağlar.
-**/
