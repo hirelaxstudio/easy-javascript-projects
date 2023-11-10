@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   var magic8Ball = {};
-  magic8Ball.listOfAnswers = ["No", "Yes", "I don't think so...", "Of course!", "Indubitably", "In your dreams."];
+  magic8Ball.listOfAnswers = ["Emin olabilirsin!", "Hayır", "Düşünmem lazım...", "Elbette!", "Kesinlikle", "İmkanı Yok!"];
 
   $("#answer").hide();
 
@@ -34,7 +34,7 @@ $(document).ready(function() {
 
 
     setTimeout(function(){
-      var question = prompt("ASK A YES/NO QUESTION!");
+      var question = prompt("Bana Soru Sor!");
       magic8Ball.askQuestion(question);
     }, 500);
 
