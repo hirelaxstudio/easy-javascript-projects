@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>To-Do List</title>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="intro col-12">
+				<h1>To-Do List</h1>
+				<div>
+					<div class="border1"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="helpText col-12">
+				<p id="first">Listeye öğe eklemek için metin kutusuna yazı girin.</p>
+				<p id="second">Öğeyi tamamlamak için üzerine tıklayın.</p>
+				<p id="third">Öğeyi listeden kaldırmak için "X" tuşuna tıklayın.</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-12">
+				<input id="userInput" type="text" placeholder="Buraya Yaz." maxlength="27">
+				<button id="enter"><i class="fas fa-pencil-alt"></i></button>
+			</div>
+		</div>
+
+		<!-- Empty List -->
+		<div class="row">
+			<div class="listItems col-12">
+				<ul class="col-12 offset-0 col-sm-8 offset-sm-2"></ul>
+			</div>
+		</div>
+
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
