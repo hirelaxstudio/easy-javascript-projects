@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Anton');
+
+.cursor {
+  left: 0;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #f44336;
+  position: absolute;
+  border-radius: 5px;
+  z-index: 9999; /* cursor'ı en üste getir */
+}
+
+.cursor__follower {
+  transition: transform .4s;
+  width: 6px;
+  height: 6px;
+}
+
+/* Unrelated styles */
+html {
+  cursor: none;
+  background-color: #2d2b2b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0; /* Sayfa kenar boşluklarını kaldır */
+  overflow: hidden; /* Ekran dışına çıkan içeriği kes */
+}
+
+h1 {
+  font-family: 'Anton', 'helvetica', sans-serif;
+  font-size: 100px;
+  letter-spacing: 12px;
+  line-height: 1;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000; /* h1'i en üste getir */
+}
+
+h1 span {
+  letter-spacing: 15px;
+}
